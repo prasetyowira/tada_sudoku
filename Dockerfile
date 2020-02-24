@@ -47,6 +47,4 @@ RUN chmod +x /opt/tada_sudoku/bin/tada_sudoku
 RUN adduser -D -g '' tada_sudoku
 USER tada_sudoku
 
-ENTRYPOINT ["/usr/bin/dumb-init", "--"]
-
 CMD ["/opt/tada_sudoku/bin/tada_sudoku", "<", "/opt/tada_sudoku/solved.txt"]
