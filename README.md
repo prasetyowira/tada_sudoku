@@ -26,7 +26,7 @@ $ make package
 To run inside docker
 ```console
 $ docker pull ariwira/tada_sudoku:latest
-$ docker run ariwira/tada_sudoku
+$ docker run --rm ariwira/tada_sudoku
 ```
 
 ### Testing
