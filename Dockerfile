@@ -29,6 +29,8 @@ ENV PATH=$PATH:/opt/tada_sudoku/bin
 WORKDIR /opt/tada_sudoku/bin
 
 COPY --from=build-stage /go/src/github.com/prasetyowira/tada_sudoku/bin/tada_sudoku /opt/tada_sudoku/bin/
+COPY ./input.txt tada_sudoku/
+COPY ./solved.txt tada_sudoku/
 RUN chmod +x /opt/tada_sudoku/bin/tada_sudoku
 
 # Create appuser
@@ -37,4 +39,4 @@ USER tada_sudoku
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 
-CMD ["/opt/tada_sudoku/bin/tada_sudoku"]
+CMD ["/opt/tada_sudoku/bin/tada_sudoku < /opt/tada_sudoku/solved.txt"]
