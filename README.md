@@ -26,7 +26,9 @@ $ make package
 To run inside docker
 ```console
 $ docker pull ariwira/tada_sudoku:latest
-$ docker run --rm ariwira/tada_sudoku
+$ docker run --rm ariwira/tada_sudoku bash -c "tada_sudoku < /opt/tada_sudoku/solved.txt"
+or
+$ docker run --rm ariwira/tada_sudoku bash -c "tada_sudoku solve < /opt/tada_sudoku/input.txt"
 ```
 
 ### Testing
