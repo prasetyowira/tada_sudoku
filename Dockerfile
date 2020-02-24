@@ -15,7 +15,14 @@ WORKDIR /go/src/github.com/prasetyowira/tada_sudoku
 RUN make build-alpine
 
 # Final Stage
-FROM ariwira/tada-sudoku-image:latest
+FROM alpine:latest
+
+RUN apk add --no-cache --update \
+    dumb-init \
+    bash \
+    ca-certificates \
+    openssl && \
+    rm -rf /var/cache/apk/*
 
 ARG GIT_COMMIT
 ARG VERSION
