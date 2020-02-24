@@ -40,6 +40,7 @@ COPY --from=build-stage /go/src/github.com/prasetyowira/tada_sudoku/input.txt /o
 COPY --from=build-stage /go/src/github.com/prasetyowira/tada_sudoku/solved.txt /opt/tada_sudoku/
 RUN ls -la /opt/tada_sudoku
 RUN ls -la /opt/tada_sudoku/bin
+RUN cat /opt/tada_sudoku/solved.txt
 RUN chmod +x /opt/tada_sudoku/bin/tada_sudoku
 
 # Create appuser
@@ -48,4 +49,4 @@ USER tada_sudoku
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 
-CMD ["/opt/tada_sudoku/bin/tada_sudoku < /opt/tada_sudoku/solved.txt"]
+CMD ["/opt/tada_sudoku/bin/tada_sudoku", "<", "/opt/tada_sudoku/solved.txt"]
