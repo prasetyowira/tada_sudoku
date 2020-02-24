@@ -38,6 +38,8 @@ WORKDIR /opt/tada_sudoku/bin
 COPY --from=build-stage /go/src/github.com/prasetyowira/tada_sudoku/bin/tada_sudoku /opt/tada_sudoku/bin/
 COPY ./input.txt /opt/tada_sudoku/
 COPY ./solved.txt /opt/tada_sudoku/
+RUN ls -la /opt/tada_sudoku
+RUN ls -la /opt/tada_sudoku/bin
 RUN chmod +x /opt/tada_sudoku/bin/tada_sudoku
 
 # Create appuser
